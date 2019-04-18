@@ -5,9 +5,13 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.support.v7.app.AppCompatActivity
+
+
 
 class FragmentHolder : Fragment() {
 
@@ -27,19 +31,21 @@ class FragmentHolder : Fragment() {
             receiveVideoFragment = ReceiveVideoFragment()
             mSectionsPagerAdapter = SectionsPagerAdapter(activity!!.supportFragmentManager)
         }
-        //initConnectionFragment?.setOnSendNewCommandCallBack(onSendNewCommandCallBack)
-        //receiveVideoFragment?.setOnSendNewCommandCallBack(onSendNewCommandCallBack)
-
+        
         mViewPager?.adapter = mSectionsPagerAdapter
 
-//        mViewPager?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
-//            override fun onPageSelected(position: Int) {
-//                //onRefreshPanelEnergyToolBarCallback?.onRefreshPanelEnergyToolBar(position)
-//            }
-//
-//            override fun onPageScrollStateChanged(state: Int) {}
-//            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
-//        })
+        mViewPager?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+            override fun onPageSelected(position: Int) {
+                if(position == 1){
+                    (activity as AppCompatActivity).supportActionBar!!.hide()
+                } else {
+                    (activity as AppCompatActivity).supportActionBar!!.show()
+                }
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {}
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+        })
 
         mViewPager?.post {
             val item = mViewPager?.currentItem
