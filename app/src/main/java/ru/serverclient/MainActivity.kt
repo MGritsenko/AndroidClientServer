@@ -1,7 +1,5 @@
 package ru.serverclient
 
-import android.graphics.Bitmap
-import android.graphics.SurfaceTexture
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 

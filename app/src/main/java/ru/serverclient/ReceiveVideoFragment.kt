@@ -22,7 +22,7 @@ class ReceiveVideoFragment : Fragment(), FragmentInterface {
     }
 
     override fun update(text: String, img: Bitmap) {
-        fragmentView?.imageView?.setImageBitmap(rotateBitmap(img, 90f))
+        fragmentView?.imageView?.setImageBitmap(rotateBitmap(img, 0f))
     }
 
     private fun rotateBitmap(source: Bitmap, angle: Float): Bitmap {

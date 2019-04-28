@@ -31,7 +31,7 @@ class FragmentHolder : Fragment() {
             receiveVideoFragment = ReceiveVideoFragment()
             mSectionsPagerAdapter = SectionsPagerAdapter(activity!!.supportFragmentManager)
         }
-        
+
         mViewPager?.adapter = mSectionsPagerAdapter
 
         mViewPager?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
